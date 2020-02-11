@@ -29,48 +29,46 @@ public double Rtrigger(){
     return Xboxcontroller.getRawAxis(variables.Rtrigger);
 }
 
-public int Abutton(){
+public boolean Abutton(){
     return Xboxcontroller.getRawButton(variables.Abutton);
 }
 
-public int Bbutton(){
+public boolean Bbutton(){
     return Xboxcontroller.getRawButton(variables.Bbutton);
 }
 
-public int Xbutton(){
+public boolean Xbutton(){
     return Xboxcontroller.getRawButton(variables.Xbutton);
 }
 
-public int Ybutton(){
+public boolean Ybutton(){
     return Xboxcontroller.getRawButton(variables.Ybutton);
 }
 
-public int LeftBumperbutton(){
+public boolean LeftBumperbutton(){
     return Xboxcontroller.getRawButton(variables.LeftBumperbutton);
 }
 
-public int RightBumperbutton(){
+public boolean RightBumperbutton(){
     return Xboxcontroller.getRawButton(variables.RightBumperbutton);
 }
 
-public int Backbutton(){
+public boolean Backbutton(){
     return Xboxcontroller.getRawButton(variables.Backbutton);
 }
 
-public int Startbutton(){
+public boolean Startbutton(){
     return Xboxcontroller.getRawButton(variables.Startbutton);
 }
 
-public int LeftStickTogglebutton(){
+public boolean LeftStickTogglebutton(){
     return Xboxcontroller.getRawButton(variables.LeftStickTogglebutton);
 }
 
-public int RightStickTogglebutton(){
+public boolean RightStickTogglebutton(){
     return Xboxcontroller.getRawButton(variables.RightStickTogglebutton);
 }
 
-public int Abutton(){
-    return Xboxcontroller.getRawButton(variables.Abutton);
-}
+
 
 }
