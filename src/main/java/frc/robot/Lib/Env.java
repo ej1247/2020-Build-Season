@@ -17,4 +17,21 @@ public int Startbutton = 8;
 public int LeftStickTogglebutton = 9;
 public int RightStickTogglebutton = 10;
 
+//this is for the 3DextremeProLogitech
+public final int flightStick = 1;
+public int flightStickXchannel = 1;
+public int flightStickYchannel = 4;
+public int Zchannel = 2;
+public int Slider = 3;
+public int button1 = 1;
+public int button2 = 2;
+public int button3 = 3;
+public int button4 = 4;
+public int button5 = 5;
+public int button6 = 6;
+public int button7 = 7;
+public int button8 = 8;
+public int button9 = 9;
+public int button10 = 10;
+
 }
