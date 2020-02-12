@@ -1,16 +1,16 @@
-import edu.wpi.first.wpilibj.*;
+package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 
-
-public class Xboxcontroller{
+public class Xbox{
 
 Env variables = new Env();
+int port;
 
+Joystick Xboxcontroller = new Joystick(port);
 
-Joystick Xboxcontroller = new Joystick(variables.Xboxcontroller);
-
-public Xboxcontroller(){
-
+public Xbox(int port){
+    this.port = port;
 }
 
 public double Xchannel(){
@@ -68,7 +68,4 @@ public boolean LeftStickTogglebutton(){
 public boolean RightStickTogglebutton(){
     return Xboxcontroller.getRawButton(variables.RightStickTogglebutton);
 }
-
-
-
 }

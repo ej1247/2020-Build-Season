@@ -1,16 +1,16 @@
+package frc.robot;
+
 import edu.wpi.first.wpilibj.*;
-
-
 
 public class ExtremeProLogitech{
 
 Env variables = new Env();
+int port; 
 
+Joystick flightStick = new Joystick(port);
 
-Joystick flightStick = new Joystick(variables.flightStick);
-
-public ExtremeProLogitech(){
-
+public ExtremeProLogitech(int port){
+    this.port = port;
 }
 
 public double Xchannel(){
@@ -68,7 +68,4 @@ public boolean button9(){
 public boolean button10(){
     return flightStick.getRawButton(variables.button10);
 }
-
-
-
 }
