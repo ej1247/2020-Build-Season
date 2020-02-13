@@ -29,30 +29,30 @@ SpeedControllerGroup m_beltDrive = new SpeedControllerGroup(m_belt);
 SpeedControllerGroup m_l = new SpeedControllerGroup(m_left, m_left2);
 SpeedControllerGroup m_r = new SpeedControllerGroup(m_right, m_right2);
 DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
-// Xbox m_stick = new Xbox(0);
+Xbox m_stick = new Xbox(0);
 
 
-// public void runtime(){
-//     double speed =0;
+public void runtime(){
+    double speed =0;
         
-//     if(m_stick.getRawAxis(2)>=1){
-//       speed = .3;
-//       m_belt.set(speed);
-//     } else if(m_stick.getRawAxis(3)>=1){
-//       speed = .3;
-//       m_belt.set(speed);
-//     }else{
-//        speed = 0; 
-//        m_belt.set(speed);
-//      }
+    if(m_stick.Ltrigger()>=1){
+      speed = .3;
+      m_belt.set(speed);
+    } else if(m_stick.Rtrigger()>=1){
+      speed = .3;
+      m_belt.set(speed);
+    }else{
+       speed = 0; 
+       m_belt.set(speed);
+     }
 
       
-//       if(m_stick.getRawAxis(2)>=1&&m_stick.getRawAxis(3)>=1) {
-//       speed =0;
-//       m_belt.set(speed);
-//     }
+      if(m_stick.Rtrigger()>=1&&m_stick.Ltrigger()>=1) {
+      speed =0;
+      m_belt.set(speed);
+    }
 
-//     }
+    }
 
   @Override
   public void teleopPeriodic() {
@@ -65,6 +65,7 @@ DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
     // m_right.setInverted(true);
     // m_right2.setInverted(true);
     //m_robotDrive.arcadeDrive(m_stick.getRawAxis(4), m_stick.getRawAxis(1));
-    // runtime();
+    
+    runtime();
   }
 }
