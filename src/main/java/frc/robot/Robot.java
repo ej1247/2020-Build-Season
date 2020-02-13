@@ -36,10 +36,10 @@ public void runtime(){
     double speed =0;
         
     if(m_stick.Ltrigger()>=1){
-      speed = .3;
+      speed = .7;
       m_belt.set(speed);
     } else if(m_stick.Rtrigger()>=1){
-      speed = .3;
+      speed = .7;
       m_belt.set(speed);
     }else{
        speed = 0; 
@@ -65,7 +65,7 @@ public void runtime(){
     // m_right.setInverted(true);
     // m_right2.setInverted(true);
     //m_robotDrive.arcadeDrive(m_stick.getRawAxis(4), m_stick.getRawAxis(1));
-    
+
     runtime();
   }
 }
