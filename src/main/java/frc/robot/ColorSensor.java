@@ -54,13 +54,11 @@ Dashboard newDash;
         setColorValue(colorValue);
         break;
         default :
-        //This is corrupt data
         colorValue = "Unknown";
         setColorValue(colorValue);
         break;
         }
         } else {
-        //Code for no data received yet
 
         }   
     }
