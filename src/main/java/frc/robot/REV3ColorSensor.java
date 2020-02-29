@@ -23,28 +23,32 @@ public class REV3ColorSensor{
     }
     public enum colors {BLUE, GREEN, RED, YELLOW}
 
-    public void matchColors(){
+    public String matchColors(){
     Color detectedColor = colorSensor.getColor();
     String colorString;
+    String colorData;
     ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
     
     if (match.color == kBlueTarget) {
       colorString = "Blue";
       System.out.println(colorString + " color");
+      return colorData = "B";
     } else if (match.color == kRedTarget) {
       colorString = "Red";
       System.out.println(colorString + " color");
+      return colorData = "R";
     } else if (match.color == kGreenTarget) {
       colorString = "Green";
       System.out.println(colorString + " color");
+      return colorData = "G";
     } else if (match.color == kYellowTarget) {
       colorString = "Yellow";
       System.out.println(colorString + " color");
+      return colorData = "Y";
     } else {
       colorString = "Unknown";
       System.out.println(colorString + " color");
+      return colorData = colorString;
     }
-
-
     }
 }
