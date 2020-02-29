@@ -1,9 +1,13 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Spark;
 
 public class ColorSensor{
 REV3ColorSensor colorSensor;
+SpeedController m_colorMotor = new Spark(0);
+
 private String value = "Unknown";
 Dashboard newDash;
 
@@ -31,26 +35,26 @@ Dashboard newDash;
         {
         case 'B' :
         //Blue case code
-        System.out.println("B");
-        colorValue = "B";
-        setColorValue(colorValue);
-        break;
-        case 'G' :
-        //Green case code
-        System.out.println("G");
-        colorValue = "G";
-        setColorValue(colorValue);
-        break;
-        case 'R' :
-        //Red case code
         System.out.println("R");
         colorValue = "R";
         setColorValue(colorValue);
         break;
-        case 'Y' :
-        //Yellow case code
+        case 'G' :
+        //Green case code
         System.out.println("Y");
         colorValue = "Y";
+        setColorValue(colorValue);
+        break;
+        case 'R' :
+        //Red case code
+        System.out.println("B");
+        colorValue = "B";
+        setColorValue(colorValue);
+        break;
+        case 'Y' :
+        //Yellow case code
+        System.out.println("G");
+        colorValue = "G";
         setColorValue(colorValue);
         break;
         default :
@@ -62,4 +66,22 @@ Dashboard newDash;
 
         }   
     }
+    public String colorSensor(){
+        return colorSensor.matchColors();
+    }
+    public void startColorMotor(){
+            m_colorMotor.set(0.2);
+    }
+    public void stopColorMotor(){
+    m_colorMotor.set(0.0);
+    }
+    public void runWheel(Boolean on){
+    if(colorSensor().equals(getFMSColor()) && on == true){
+        stopColorMotor();
+    }else if(on == false){
+        stopColorMotor();
+    }else{
+        startColorMotor(); 
+    }
+}
 }

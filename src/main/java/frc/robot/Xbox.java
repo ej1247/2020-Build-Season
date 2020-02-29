@@ -42,7 +42,7 @@ public boolean Xbutton(){
 }
 
 public boolean Ybutton(){
-    return Xboxcontroller.getRawButton(variables.Ybutton);
+    return Xboxcontroller.getRawButtonPressed(variables.Ybutton);
 }
 
 public boolean LeftBumperbutton(){
@@ -50,7 +50,7 @@ public boolean LeftBumperbutton(){
 }
 
 public boolean RightBumperbutton(){
-    return Xboxcontroller.getRawButton(variables.RightBumperbutton);
+    return Xboxcontroller.getRawButtonPressed(variables.RightBumperbutton);
 }
 
 public boolean Backbutton(){
