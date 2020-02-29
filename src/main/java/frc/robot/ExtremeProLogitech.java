@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.*;
 
 public class ExtremeProLogitech{
 
-Env variables = new Env();
+ControllerConstants variables = new ControllerConstants();
 int port; 
 
 Joystick flightStick = new Joystick(port);

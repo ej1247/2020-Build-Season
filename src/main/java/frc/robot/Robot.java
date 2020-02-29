@@ -29,13 +29,11 @@ SpeedControllerGroup m_beltDrive = new SpeedControllerGroup(m_belt);
 SpeedControllerGroup m_l = new SpeedControllerGroup(m_left, m_left2);
 SpeedControllerGroup m_r = new SpeedControllerGroup(m_right, m_right2);
 DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
-REV3ColorSensor m_colorSensor = new REV3ColorSensor();
-Dashboard newDash =new Dashboard();
+ColorSensor colorSensor = new ColorSensor(); 
 Xbox m_stick = new Xbox(0);
 
  public void runtime(){
-  // newDash.putNumber("color",m_colorSensor.readColors());
-  m_colorSensor.matchColors();
+   colorSensor.getColorValue();
  }
 
   @Override

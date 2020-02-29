@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class Xbox{
 
-Env variables = new Env();
+ControllerConstants variables = new ControllerConstants();
 int port;
 
 Joystick Xboxcontroller = new Joystick(port);
