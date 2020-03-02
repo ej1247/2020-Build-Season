@@ -39,15 +39,16 @@ public void teleopPeriodic() {
   System.out.println(counter);
   if(m_stick.Ybutton()){
     counter++;
+    colorSensor.colorCounter = 0;
   }
   if((counter ==1)){
      colorSensor.runWheel(true);
   } else{
-    colorSensor.stopColorMotor();
+    colorSensor.runWheel(false);
   }
   if(counter == 2){
     counter =0;
-    colorSensor.stopColorMotor();
+    colorSensor.runWheel(false);
   }
 }
 }

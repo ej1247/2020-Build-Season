@@ -10,6 +10,7 @@ SpeedController m_colorMotor = new Spark(0);
 
 private String value = "Unknown";
 Dashboard newDash;
+int colorCounter = 0;
 
     public ColorSensor(){
         colorSensor = new REV3ColorSensor();
@@ -76,12 +77,23 @@ Dashboard newDash;
     m_colorMotor.set(0.0);
     }
     public void runWheel(Boolean on){
-    if(colorSensor().equals(getFMSColor()) && on == true){
-        stopColorMotor();
-    }else if(on == false){
-        stopColorMotor();
-    }else{
+    
+    if(this.colorCounter ==1){
+            stopColorMotor();
+    }
+
+    if(!colorSensor().equals(getFMSColor()) && (on == true && this.colorCounter == 0)){
         startColorMotor(); 
+    }else{
+        stopColorMotor();
+    }
+
+    if(colorSensor().equals(getFMSColor())){
+          System.out.println("logging counter "+this.colorCounter);
+          this.colorCounter=1;
+    }
+    if(on == false){
+        stopColorMotor();
     }
 }
 }
