@@ -41,6 +41,11 @@ public void teleopPeriodic() {
     counter++;
     colorSensor.colorCounter = 0;
   }
+
+  if(m_stick.Xbutton()){
+    colorSensor.countColors(2);
+  }
+
   if((counter ==1)){
      colorSensor.runWheel(true);
   } else{

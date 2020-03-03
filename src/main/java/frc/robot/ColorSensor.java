@@ -76,6 +76,18 @@ int colorCounter = 0;
     public void stopColorMotor(){
     m_colorMotor.set(0.0);
     }
+    
+    //level 2
+    //runs wheel for a given number of times for a specfic color
+    public void countColors(int count){
+        if(colorSensor() != "Unknown"){
+            String[] colors ={colorSensor()};
+            System.out.println("colors in an array "+ colors);
+        }
+    }
+
+    //level 3
+    //runs wheel until declared false by sensing correct color value
     public void runWheel(Boolean on){
     
     if(this.colorCounter ==1){
