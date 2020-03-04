@@ -7,8 +7,8 @@ import edu.wpi.first.wpilibj.Spark;
 public class ColorSensor{
 REV3ColorSensor colorSensor;
 SpeedController m_colorMotor = new Spark(0);
-
 private String value = "Unknown";
+private int colorCount = 0;
 Dashboard newDash;
 int colorCounter = 0;
 
@@ -81,7 +81,14 @@ int colorCounter = 0;
     //runs wheel for a given number of times for a specfic color
     public void countColors(int count){
         if(colorSensor() != "Unknown"){
-            String[] colors ={colorSensor()};
+            String color = colorSensor();
+            String[] colors = {};
+
+            for(colorCount = 0; colorCount<colors.length; colorCount++){
+                if(color != colors[colorCount-1]){
+                    colors[colorCount] = colorSensor();
+                }
+            }
             System.out.println("colors in an array "+ colors);
         }
     }
