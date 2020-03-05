@@ -11,8 +11,13 @@ Joystick Xboxcontroller = new Joystick(port);
 
 public Xbox(int port){
     this.port = port;
+    
 }
 
+
+public double getRawAxis(int btn){
+    return Xboxcontroller.getRawAxis(btn);
+}
 public double Xchannel(){
     return Xboxcontroller.getRawAxis(variables.Xchannel);
 }
@@ -42,7 +47,7 @@ public boolean Xbutton(){
 }
 
 public boolean Ybutton(){
-    return Xboxcontroller.getRawButton(variables.Ybutton);
+    return Xboxcontroller.getRawButtonPressed(variables.Ybutton);
 }
 
 public boolean LeftBumperbutton(){
@@ -50,7 +55,7 @@ public boolean LeftBumperbutton(){
 }
 
 public boolean RightBumperbutton(){
-    return Xboxcontroller.getRawButton(variables.RightBumperbutton);
+    return Xboxcontroller.getRawButtonPressed(variables.RightBumperbutton);
 }
 
 public boolean Backbutton(){
