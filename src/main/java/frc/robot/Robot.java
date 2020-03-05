@@ -74,21 +74,23 @@ public void teleopPeriodic() {
   
 
   //  System.out.println("counter " + counter);
-    m_l.set(0.5);
-    m_r.set(0.5);
+    // m_l.set(0.5);
+    // m_r.set(0.5);
     
     // Drive with arcade drive.
     // That means that the Y axis drives forward
     // and backward, and the X turns left and right.
     m_right.setInverted(true);
     m_right2.setInverted(true);
-    // m_robotDrive.arcadeDrive(m_stick.getRawAxis(4), m_stick.getRawAxis(1));
+    //m_robotDrive.arcadeDrive(m_stick.getRawAxis(4), m_stick.getRawAxis(1));
     
     if(m_stick.Abutton()){
+      m_right2.setInverted(false);
       m_magazine.set(1);
       System.out.println("A");
     }else if(m_stick.Bbutton()){
-      m_magazine.set(-1);
+      m_right2.setInverted(true);
+      m_magazine.set(1);
       System.out.println("B");
     }else{
       m_magazine.set(0);
