@@ -71,7 +71,7 @@ int colorCounter = 0;
         return colorSensor.matchColors();
     }
     public void startColorMotor(){
-            m_colorMotor.set(0.2);
+            m_colorMotor.set(0.8);
     }
     public void stopColorMotor(){
     m_colorMotor.set(0.0);

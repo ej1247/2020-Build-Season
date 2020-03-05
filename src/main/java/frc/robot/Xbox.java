@@ -11,8 +11,13 @@ Joystick Xboxcontroller = new Joystick(port);
 
 public Xbox(int port){
     this.port = port;
+    
 }
 
+
+public double getRawAxis(int btn){
+    return Xboxcontroller.getRawAxis(btn);
+}
 public double Xchannel(){
     return Xboxcontroller.getRawAxis(variables.Xchannel);
 }
