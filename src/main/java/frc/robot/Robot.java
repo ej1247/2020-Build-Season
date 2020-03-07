@@ -49,16 +49,18 @@ Xbox m_stick = new Xbox(0);
 int counter = 0;
 
 
-public void tumblr(boolean enabled){
+public void tumblr(boolean enabled,double speed){
   if(enabled == true){
-    double speed = 0;
+    double speeds = speed;
         
     if((m_stick.getRawAxis(2))>= 1){
-      speed = 0.3;
-      m_belt.set(speed);
+      m_belt.setInverted(false);
+      // speed = 0.3;
+      m_belt.set(speeds);
     } else if((m_stick.getRawAxis(3))>= 1){
-      speed = -0.3;
-      m_belt.set(speed);
+      m_belt.setInverted(true);
+      // speed = -0.3;
+      m_belt.set(speeds);
     }else{
        speed = 0; 
        m_belt.set(speed);
@@ -68,16 +70,16 @@ public void tumblr(boolean enabled){
   }
 }
 
-public void magazine(boolean enabled){
+public void magazine(boolean enabled,double speed){
   if(enabled == true){
 
     if(m_stick.Abutton()){
-      m_right2.setInverted(false);
-      m_magazine.set(1);
+      m_magazine.setInverted(false);
+      m_magazine.set(speed);
       System.out.println("A");
     }else if(m_stick.Bbutton()){
-      m_right2.setInverted(true);
-      m_magazine.set(1);
+      m_magazine.setInverted(true);
+      m_magazine.set(speed);
       System.out.println("B");
     }else{
       m_magazine.set(0);
@@ -150,7 +152,9 @@ public void features() throws Exception{
 public void teleopPeriodic() {
   try
   {
-  features();
+  // features();
+  magazine(true,1);
+  tumblr(true,1);
   }catch(Exception e){
 
   }
