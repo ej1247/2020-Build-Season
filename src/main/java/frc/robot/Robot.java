@@ -35,7 +35,9 @@ DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
 ColorSensor colorSensor = new ColorSensor(); 
 Xbox m_stick = new Xbox(0);
 int counter = 0;
-public void runtime(){
+
+public void tumblr(boolean enabled){
+  if(enabled == true){
     double speed = 0;
         
     if((m_stick.getRawAxis(2))>= 1){
@@ -48,44 +50,14 @@ public void runtime(){
        speed = 0; 
        m_belt.set(speed);
      }
+  }else{
+    System.out.println("Belt is disabled");
+  }
 }
 
-  @Override
-public void teleopPeriodic() {
-  colorSensor.getColorValue();
-  runtime();
-  System.out.println(counter);
-  if(m_stick.Ybutton()){
-    counter++;
-    colorSensor.colorCounter = 0;
-  }
+public void magazine(){
+  if(enabled == true){
 
-  if(m_stick.Xbutton()){
-    colorSensor.countColors(2);
-  }
-  if((counter ==1)){
-     colorSensor.runWheel(true);
-  } else{
-    colorSensor.runWheel(false);
-  }
-  if(counter == 2){
-    counter =0;
-    colorSensor.runWheel(false);
-  }
-
-  
-
-  //  System.out.println("counter " + counter);
-    // m_l.set(0.5);
-    // m_r.set(0.5);
-    
-    // Drive with arcade drive.
-    // That means that the Y axis drives forward
-    // and backward, and the X turns left and right.
-    m_right.setInverted(true);
-    m_right2.setInverted(true);
-    //m_robotDrive.arcadeDrive(m_stick.getRawAxis(4), m_stick.getRawAxis(1));
-    
     if(m_stick.Abutton()){
       m_right2.setInverted(false);
       m_magazine.set(1);
@@ -98,4 +70,56 @@ public void teleopPeriodic() {
       m_magazine.set(0);
     }
     }
+  }else{
+    System.out.println("magazine is disabled");
+  }
+} 
+
+public void drive(boolean enabled,speed){
+if(enabled == true){
+    m_l.set(speed);
+    m_r.set(speed);
+    
+    // Drive with arcade drive.
+    // That means that the Y axis drives forward
+    // and backward, and the X turns left and right.
+    m_right.setInverted(true);
+    m_right2.setInverted(true);
+    m_robotDrive.arcadeDrive(m_stick.getRawAxis(4), m_stick.getRawAxis(1));
+    
+}else{
+System.out.println("Drive is disabled");
+}
+}
+
+public void colorSensor(boolean enabled){
+  if(enabled == true){
+  colorSensor.getColorValue();
+  System.out.println(counter);
+  if(m_stick.Ybutton()){
+    counter++;
+    colorSensor.colorCounter = 0;
+  }
+    if(m_stick.Xbutton()){
+    colorSensor.countColors(2);
+  }
+  if((counter ==1)){
+     colorSensor.runWheel(true);
+  } else{
+    colorSensor.runWheel(false);
+  }
+  if(counter == 2){
+    counter =0;
+    colorSensor.runWheel(false);
+  }
+
+  }else{
+    System.out.println("Color sensor is disabled")
+  }
+} 
+
+
+@Override
+public void teleopPeriodic() {
+  tumblr(true);
 }
