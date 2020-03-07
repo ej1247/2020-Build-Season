@@ -7,6 +7,12 @@
 
 package frc.robot;
 
+
+import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -16,12 +22,16 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.sensors.ColorSensor;
 import frc.robot.libs.Xbox;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
+
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class.
  * Runs the motors with arcade steering.
  */
-public class Robot extends TimedRobot {
+public class Robot extends TimedRobot  {
+
 SpeedController m_right = new Spark(1);
 SpeedController m_right2 = new Spark(2);
 SpeedController m_left = new Spark(3);
@@ -35,6 +45,7 @@ DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
 ColorSensor colorSensor = new ColorSensor(); 
 Xbox m_stick = new Xbox(0);
 int counter = 0;
+
 
 public void tumblr(boolean enabled){
   if(enabled == true){
@@ -117,9 +128,27 @@ public void colorSensor(boolean enabled){
   }
 } 
 
+public void features() throws Exception{
+  File file = new File("teamvars/vars.json");
+  String content = FileUtils.readFileToString(file, "utf-8");
 
+  JSONObject json = new JSONObject(content);
+  System.out.println(json.get("drive"));
+
+}
 @Override
 public void teleopPeriodic() {
+  try
+  {
+  features();
+  }catch(Exception e){
+
+  }
   // tumblr(true);
+ /* String features = json.getJSONObject("");
+  for()
 }
+*/
+}
+  
 }
