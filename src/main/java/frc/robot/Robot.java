@@ -23,7 +23,9 @@ import edu.wpi.first.wpilibj.Timer;
 import frc.robot.sensors.ColorSensor;
 import frc.robot.libs.Xbox;
 import java.io.File;
+import java.io.FileReader;
 import org.apache.commons.io.FileUtils;
+import org.json.simple.parser.JSONParser;
 
 
 /**
@@ -130,11 +132,18 @@ public void colorSensor(boolean enabled){
 
 public void features() throws Exception{
   File file = new File("teamvars/vars.json");
-  String content = FileUtils.readFileToString(file, "utf-8");
+  FileReader content = new FileReader(file);
+  JSONParser parser = new JSONParser();
+	JSONObject a = (JSONObject) parser.parse(content);
+  System.out.println(a.get("drive"));
+    
 
-  JSONObject json = new JSONObject(content);
-  JSONObject drive = (JSONObject) json.get("drive");
-  System.out.println("drive"+ drive);
+    // JSONArray cars = (JSONArray) person.get("cars");
+
+    // for (Object c : cars)
+    // {
+    //   System.out.println(c+"");
+    // }
 
 }
 @Override
