@@ -1,8 +1,9 @@
-package frc.robot;
+package frc.robot.sensors;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Spark;
+import frc.robot.dashboard.Dashboard;
 
 public class ColorSensor{
 REV3ColorSensor colorSensor;
@@ -10,7 +11,7 @@ SpeedController m_colorMotor = new Spark(0);
 private String value = "Unknown";
 private int colorCount = 0;
 Dashboard newDash;
-int colorCounter = 0;
+public int colorCounter = 0;
 
     public ColorSensor(){
         colorSensor = new REV3ColorSensor();
