@@ -10,6 +10,21 @@ def ROBOT_MAIN_CLASS = "frc.robot.Main"
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project EmbeddedTools.
+
+task mech {
+    description "deploys only top part of the robot - drive train code"
+    doLast {
+        println "deploying mechs's"
+    }
+}
+
+task drive {
+    description "deploys all parts of the robot + drive train code. Cuz hardware team never wants just drive :P"
+    doLast {
+        println "deploying drive!!"
+    }
+}
+
 deploy {
     targets {
         roboRIO("roborio") {
