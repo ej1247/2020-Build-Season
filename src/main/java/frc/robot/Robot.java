@@ -55,7 +55,7 @@ public void tumblr(boolean enabled){
   }
 }
 
-public void magazine(){
+public void magazine(boolean enabled){
   if(enabled == true){
 
     if(m_stick.Abutton()){
@@ -69,13 +69,12 @@ public void magazine(){
     }else{
       m_magazine.set(0);
     }
-    }
   }else{
     System.out.println("magazine is disabled");
   }
 } 
 
-public void drive(boolean enabled,speed){
+public void drive(boolean enabled,double speed){
 if(enabled == true){
     m_l.set(speed);
     m_r.set(speed);
@@ -114,12 +113,13 @@ public void colorSensor(boolean enabled){
   }
 
   }else{
-    System.out.println("Color sensor is disabled")
+    System.out.println("Color sensor is disabled");
   }
 } 
 
 
 @Override
 public void teleopPeriodic() {
-  tumblr(true);
+  // tumblr(true);
+}
 }
