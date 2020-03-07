@@ -152,7 +152,8 @@ public void features() throws Exception{
 public void teleopPeriodic() {
   try
   {
-  double m_magazineSpeed = 0;
+  double speed =0;
+  double m_magazineSpeed = dash.getNumber("magazine",speed);
   dash.getNumber("magazine",m_magazineSpeed);
 
   // features();
