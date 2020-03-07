@@ -40,12 +40,14 @@ SpeedController m_left = new Spark(3);
 SpeedController m_left2 = new Spark(4);
 SpeedController m_belt = new VictorSP(5);
 SpeedController m_magazine = new VictorSP(6);
+SpeedController m_shooter = new VictorSP(7);
 SpeedControllerGroup m_beltDrive = new SpeedControllerGroup(m_belt);
 SpeedControllerGroup m_l = new SpeedControllerGroup(m_left, m_left2);
 SpeedControllerGroup m_r = new SpeedControllerGroup(m_right, m_right2);
 DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
 ColorSensor colorSensor = new ColorSensor(); 
 Xbox m_stick = new Xbox(0);
+Xbox m_stick2 = new Xbox(1);
 int counter = 0;
 
 
@@ -53,12 +55,12 @@ public void tumblr(boolean enabled,double speed){
   if(enabled == true){
     double speeds = speed;
         
-    if((m_stick.getRawAxis(2))>= 1){
-      m_belt.setInverted(false);
+    if(m_stick.RightBumperbutton()){
+      // m_belt.setInverted(false);
       // speed = 0.3;
-      m_belt.set(speeds);
-    } else if((m_stick.getRawAxis(3))>= 1){
-      m_belt.setInverted(true);
+      m_belt.set(-speeds);
+    } else if(m_stick.LeftBumperbutton()){
+      // m_belt.setInverted(true);
       // speed = -0.3;
       m_belt.set(speeds);
     }else{
@@ -70,16 +72,37 @@ public void tumblr(boolean enabled,double speed){
   }
 }
 
+public void shoot(boolean enabled,double speed){
+  if(enabled == true){
+    double speeds = speed;
+        
+    if((m_stick.getRawAxis(2))>= 1){
+      m_shooter.setInverted(false);
+      // speed = 0.3;
+      m_shooter.set(speeds);
+    } else if((m_stick.getRawAxis(3))>= 1){
+      m_shooter.setInverted(true);
+      // speed = -0.3;
+      m_shooter.set(speeds);
+    }else{
+       speed = 0; 
+       m_shooter.set(speed);
+     }
+  }else{
+    System.out.println("Shooter is disabled");
+  }
+}
+
 public void magazine(boolean enabled,double speed){
   if(enabled == true){
 
     if(m_stick.Abutton()){
-      m_magazine.setInverted(false);
+      m_magazine.setInverted(true);
       m_magazine.set(speed);
       System.out.println("A");
     }else if(m_stick.Bbutton()){
       m_magazine.setInverted(true);
-      m_magazine.set(speed);
+      m_magazine.set(speed/2);
       System.out.println("B");
     }else{
       m_magazine.set(0);
@@ -153,8 +176,9 @@ public void teleopPeriodic() {
   try
   {
   // features();
-  magazine(true,1);
-  tumblr(true,1);
+  magazine(true, 0.5);
+  tumblr(true, 0.25);
+  shoot(true, 0.5);
   }catch(Exception e){
 
   }

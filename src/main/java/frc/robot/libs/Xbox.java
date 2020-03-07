@@ -55,7 +55,7 @@ public boolean LeftBumperbutton(){
 }
 
 public boolean RightBumperbutton(){
-    return Xboxcontroller.getRawButtonPressed(variables.RightBumperbutton);
+    return Xboxcontroller.getRawButton(variables.RightBumperbutton);
 }
 
 public boolean Backbutton(){
