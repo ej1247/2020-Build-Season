@@ -26,7 +26,7 @@ import java.io.File;
 import java.io.FileReader;
 import org.apache.commons.io.FileUtils;
 import org.json.simple.parser.JSONParser;
-
+import frc.robot.dashboard.Dashboard;
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class.
@@ -47,7 +47,7 @@ DifferentialDrive m_robotDrive = new DifferentialDrive(m_l, m_r);
 ColorSensor colorSensor = new ColorSensor(); 
 Xbox m_stick = new Xbox(0);
 int counter = 0;
-
+Dashboard dash = new Dashboard();
 
 public void tumblr(boolean enabled,double speed){
   if(enabled == true){
@@ -152,8 +152,11 @@ public void features() throws Exception{
 public void teleopPeriodic() {
   try
   {
+  double m_magazineSpeed = 0;
+  dash.getNumber("magazine",m_magazineSpeed);
+
   // features();
-  magazine(true,1);
+  magazine(true,m_magazineSpeed);
   tumblr(true,1);
   }catch(Exception e){
 
