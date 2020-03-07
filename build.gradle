@@ -7,14 +7,23 @@ sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 def ROBOT_MAIN_CLASS = "frc.robot.Main"
-
+def TEAM_JSON_FILE = "teamvars/vars.json"
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project EmbeddedTools.
 
-task mech {
+task mech { ->
     description "deploys only top part of the robot - drive train code"
     doLast {
-        println "deploying mechs's"
+        File teamjson = file(TEAM_JSON_FILE)
+        def stdout = new ByteArrayOutputStream()
+        def parsedJson = new groovy.json.JsonSlurper().parseText(teamjson.text)
+        def envDrive = parsedJson.mech
+        def envMech = parsedJson.drive
+        exec {
+            commandLine 'git','branch'
+            standardOutput = stdout
+        }
+        return stdout.toString().trim()
     }
 }
 
