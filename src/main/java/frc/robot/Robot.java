@@ -133,7 +133,8 @@ public void features() throws Exception{
   String content = FileUtils.readFileToString(file, "utf-8");
 
   JSONObject json = new JSONObject(content);
-  System.out.println(json.get("drive"));
+  JSONObject drive = (JSONObject) json.get("drive");
+  System.out.println("drive"+ drive);
 
 }
 @Override
